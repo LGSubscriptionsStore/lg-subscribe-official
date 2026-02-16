@@ -2,152 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LG Subscribe™ 2026 - Agent Catalog</title>
-    <style>
-        :root { --lg-red: #a50034; --dark: #222; --grey: #666; --bg: #f4f4f7; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); line-height: 1.6; }
-        
-        /* Header & Navigation */
-        header { background: white; padding: 20px; text-align: center; border-bottom: 3px solid var(--lg-red); position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        h1 { margin: 0; color: var(--lg-red); font-size: 1.8rem; }
-        .nav-filters { margin-top: 15px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-        .filter-btn { border: 1px solid var(--lg-red); background: white; color: var(--lg-red); padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; transition: 0.3s; }
-        .filter-btn.active, .filter-btn:hover { background: var(--lg-red); color: white; }
-
-        /* Container */
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
-        .cat-title { font-size: 1.5rem; color: var(--lg-red); margin: 40px 0 15px; border-left: 5px solid var(--lg-red); padding-left: 15px; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Tables */
-        .table-wrapper { background: white; border-radius: 10px; overflow-x: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        table { width: 100%; border-collapse: collapse; min-width: 800px; }
-        th { background: #f8f8f8; color: var(--grey); text-align: left; padding: 15px; font-size: 13px; border-bottom: 2px solid #eee; }
-        td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: middle; }
-        .price { font-weight: bold; color: var(--lg-red); }
-        .img-placeholder { width: 80px; height: 80px; background: #eee; display: flex; align-items: center; justify-content: center; border-radius: 5px; font-size: 10px; color: #999; border: 1px solid #ddd; }
-        img { width: 80px; height: 80px; object-fit: contain; }
-
-        /* Recruitment Section */
-        .hiring { background: var(--lg-red); color: white; padding: 40px 20px; text-align: center; margin-top: 60px; border-radius: 15px; }
-        .hiring h2 { margin-top: 0; }
-        .benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
-        .benefit-item { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; }
-
-        /* Editable Hint */
-        .edit-hint { text-align: center; color: var(--grey); font-size: 0.9rem; margin-bottom: 20px; }
-        [contenteditable="true"]:focus { outline: 2px solid var(--lg-red); background: #fffdfd; }
-    </style>
+    <title>All Products | LG Rent-Up™</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<header>
-    <h1>LG SUBSCRIBE™ 2026</h1>
-    <div class="nav-filters">
-        <button class="filter-btn active" onclick="filter('all', this)">All Products</button>
-        <button class="filter-btn" onclick="filter('fridge', this)">Refrigerators</button>
-        <button class="filter-btn" onclick="filter('tv', this)">TVs</button>
-        <button class="filter-btn" onclick="filter('laundry', this)">Laundry</button>
-    </div>
-</header>
-
-<div class="container">
-    <p class="edit-hint">Note: You can click and edit any model or price directly on this page.</p>
-
-    <div class="cat-section" data-cat="fridge">
-        <div class="cat-title">Refrigerator Category</div>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Model Name</th>
-                        <th>Model Code</th>
-                        <th>Regular (5Y)</th>
-                        <th>Combine (5Y)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><div class="img-placeholder"><img src="fridge_top.jpg" alt="Edit Image Path"></div></td>
-                        <td contenteditable="true">Top Freezer (493L)</td>
-                        <td contenteditable="true">GN-F452PQAK</td>
-                        <td class="price" contenteditable="true">RM80/mth</td>
-                        <td class="price" contenteditable="true">RM70/mth</td>
-                    </tr>
-                    <tr>
-                        <td><div class="img-placeholder">IMAGE</div></td>
-                        <td contenteditable="true">Side-by-Side (687L)</td>
-                        <td contenteditable="true">GC-B247FC7R</td>
-                        <td class="price" contenteditable="true">RM110/mth</td>
-                        <td class="price" contenteditable="true">RM100/mth</td>
-                    </tr>
-                    <tr>
-                        <td><div class="img-placeholder">IMAGE</div></td>
-                        <td contenteditable="true">InstaView (508L)</td>
-                        <td contenteditable="true">GC-G22FFQAB</td>
-                        <td class="price" contenteditable="true">RM150/mth</td>
-                        <td class="price" contenteditable="true">RM140/mth</td>
-                    </tr>
-                </tbody>
-            </table>
+    <header><div class="container"><nav><a href="index.html" class="logo">LG <span>RENT-UP</span></a><div class="nav-links"><a href="products.html">Products</a><a href="compare.html">Compare</a></div></nav></div></header>
+    
+    <div class="container">
+        <div class="filter-layout">
+            <aside>
+                <input type="text" id="search" placeholder="Search..." onkeyup="filterUI()" style="width:100%; padding:10px; margin-bottom:20px;">
+                <select id="cat" onchange="filterUI()" style="width:100%; padding:10px; margin-bottom:20px;">
+                    <option value="all">All Categories</option>
+                    <option value="tv">TV</option>
+                    <option value="kitchen">Kitchen</option>
+                </select>
+                <label><input type="checkbox" id="newCheck" onchange="filterUI()"> Show New Only</label>
+            </aside>
+            <main id="product-list" class="product-grid"></main>
         </div>
     </div>
 
-    <div class="cat-section" data-cat="tv">
-        <div class="cat-title">TV Category</div>
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Model Name</th>
-                        <th>Model Code</th>
-                        <th>Regular (5Y)</th>
-                        <th>Combine (5Y)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><div class="img-placeholder">IMAGE</div></td>
-                        <td contenteditable="true">UHD AI TV (65")</td>
-                        <td contenteditable="true">65UT8050PSB</td>
-                        <td class="price" contenteditable="true">RM65/mth</td>
-                        <td class="price" contenteditable="true">RM55/mth</td>
-                    </tr>
-                    <tr>
-                        <td><div class="img-placeholder">IMAGE</div></td>
-                        <td contenteditable="true">OLED evo C4 (65")</td>
-                        <td contenteditable="true">OLED65C4PSA</td>
-                        <td class="price" contenteditable="true">RM230/mth</td>
-                        <td class="price" contenteditable="true">RM220/mth</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+    <div id="compare-tray" class="compare-tray">
+        <span id="comp-count">0 Selected</span>
+        <a href="compare.html" class="btn-primary">Compare Now</a>
     </div>
 
-    <div class="hiring">
-        <h2>Join Our LG Rent-Up Family</h2>
-        <p>Start your career with a global brand and earn monthly passive income.</p>
-        <div class="benefit-grid">
-            <div class="benefit-item"><strong>RM0 Capital</strong><br>No fees to join</div>
-            <div class="benefit-item"><strong>60 Months Rewards</strong><br>Passive income</div>
-            <div class="benefit-item"><strong>LG ThinQ App</strong><br>Full digital tools</div>
-            <div class="benefit-item"><strong>Korea Trip</strong><br>Performance rewards</div>
-        </div>
-    </div>
-</div>
-
-<script>
-    function filter(cat, btn) {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        document.querySelectorAll('.cat-section').forEach(section => {
-            section.style.display = (cat === 'all' || section.getAttribute('data-cat') === cat) ? 'block' : 'none';
-        });
-    }
-</script>
-
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
