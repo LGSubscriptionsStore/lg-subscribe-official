@@ -8,7 +8,6 @@ const products = [
     outrightPrice: 15999,
     duration: 5,
     isNew: true,
-    promotion: "RM0 Upfront",
     features: ["α8 AI Processor 4K", "Infinite Contrast", "Dolby Vision", "480Hz Refresh Rate"],
     img: "https://www.lg.com/content/dam/channel/wcms/my/images/tvs/oled77b5psa/gallery/medium01.jpg"
   },
@@ -21,7 +20,6 @@ const products = [
     outrightPrice: 9499,
     duration: 5,
     isNew: true,
-    promotion: "Free 1st Month",
     features: ["601L Capacity", "UVNano Water Dispenser", "Craft Ice Maker"],
     img: "https://www.lg.com/content/dam/channel/wcms/my/images/refrigerators/gc-x24ffc7r/gallery/medium01.jpg"
   },
@@ -34,7 +32,6 @@ const products = [
     outrightPrice: 2499,
     duration: 3,
     isNew: false,
-    promotion: "Free Maintenance",
     features: ["Smart Inverter", "Healthy Fry", "EasyClean™"],
     img: "https://www.lg.com/content/dam/channel/wcms/my/images/cooking-appliances/mj3965bgp/gallery/medium01.jpg"
   }
