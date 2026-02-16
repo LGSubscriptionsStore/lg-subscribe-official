@@ -43,17 +43,54 @@ function updateTray() {
 }
 
 function renderDetail() {
-    const id = new URLSearchParams(window.location.search).get('id');
-    const p = products.find(x => x.id === id);
-    if (!p) return;
-    document.getElementById('detail-root').innerHTML = `
+    const root = document.getElementById('detail-root');
+    if (!root) return; // Exit if we aren't on the product page
+
+    // 1. Parse the URL
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('id');
+
+    // 2. Error Check: No ID in URL
+    if (!productId) {
+        root.innerHTML = `<div class="container" style="padding:100px 0; text-align:center;">
+            <h2>Product Not Specified</h2>
+            <p>Please select a product from our gallery.</p>
+            <a href="products.html" class="btn" style="margin-top:20px;">Back to Products</a>
+        </div>`;
+        return;
+    }
+
+    // 3. Find Product (Case-Insensitive for robustness)
+    const p = products.find(x => x.id.toLowerCase() === productId.toLowerCase());
+
+    // 4. Error Check: ID exists but isn't in data.js (Typo check)
+    if (!p) {
+        root.innerHTML = `<div class="container" style="padding:100px 0; text-align:center;">
+            <h2>Model "${productId}" Not Found</h2>
+            <p>This product may be discontinued or the link is incorrect.</p>
+            <a href="products.html" class="btn" style="margin-top:20px;">View Current Catalog</a>
+        </div>`;
+        return;
+    }
+
+    // 5. Success: Render Content
+    root.innerHTML = `
         <div class="join-grid">
-            <img src="${p.img}" style="width:100%;">
-            <div>
-                <h1 style="font-size:42px;">${p.name}</h1>
-                <p class="price" style="font-size:48px;">RM${p.subPrice}/mth</p>
-                <ul style="margin:30px 0;">${p.features.map(f => `<li>${f}</li>`).join('')}</ul>
-                <a href="https://wa.me/${CONTACT_WA}?text=Order%20${p.model}" class="btn">Apply via WhatsApp</a>
+            <div class="product-image-container">
+                <img src="${p.img}" alt="${p.name}" style="width:100%; max-height:500px; object-fit:contain;">
+            </div>
+            <div class="product-info">
+                <span style="color:var(--lg-red); font-weight:700; text-transform:uppercase;">${p.category}</span>
+                <h1 style="font-size:42px; margin:10px 0;">${p.name}</h1>
+                <p style="color:#888; margin-bottom:20px;">Model: ${p.model}</p>
+                <div class="price" style="font-size:48px; margin-bottom:30px;">RM${p.subPrice}<small style="font-size:16px; color:#333;">/mth</small></div>
+                
+                <h3 style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">Specifications</h3>
+                <ul style="margin:20px 0; padding-left:20px; line-height:2;">
+                    ${p.features.map(f => `<li>${f}</li>`).join('')}
+                </ul>
+                
+                <a href="https://wa.me/${CONTACT_WA}?text=I%20am%20interested%20in%20the%20${encodeURIComponent(p.name)}%20(${p.model})" class="btn" style="width:100%; text-align:center;">Apply via WhatsApp</a>
             </div>
         </div>`;
 }
