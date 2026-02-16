@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compare | LG Rent-Up™</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar"><div class="container nav-flex"><a href="index.html" class="logo">LG<span>RENT-UP</span></a></div></nav>
+    <div class="container" style="padding:80px 0;">
+        <table id="compare-table" style="width:100%; border-collapse:collapse; background:#fff;">
+            </table>
+    </div>
+    <script src="data.js"></script>
+    <script>
+        const ids = JSON.parse(sessionStorage.getItem('compareList')) || [];
+        const items = products.filter(p => ids.includes(p.id));
+        const table = document.getElementById('compare-table');
+        if (items.length > 0) {
+            table.innerHTML = `
+                <tr style="border-bottom:1px solid #eee;">
+                    <th style="padding:20px; text-align:left;">Product</th>
+                    ${items.map(i => `<td style="padding:20px; text-align:center;"><img src="${i.img}" style="height:120px;"><br><b>${i.name}</b></td>`).join('')}
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <th style="padding:20px; text-align:left;">Price</th>
+                    ${items.map(i => `<td style="padding:20px; color:var(--lg-red); font-weight:700; text-align:center;">RM${i.subPrice}/mth</td>`).join('')}
+                </tr>
+                <tr style="border-bottom:1px solid #eee;">
+                    <th style="padding:20px; text-align:left;">Duration</th>
+                    ${items.map(i => `<td style="padding:20px; text-align:center;">${i.duration} Years</td>`).join('')}
+                </tr>
+            `;
+        }
+    </script>
+</body>
+</html>
