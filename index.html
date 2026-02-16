@@ -4,19 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LG Subscription Malaysia | Monthly LG Appliances & TV Plans</title>
-    [cite_start]<meta name="description" content="Subscribe to LG TVs, refrigerators, washers, air conditioners, water purifiers and more in Malaysia. Affordable monthly payment plans. WhatsApp 0142626792 today. [cite: 1, 7]">
-    [cite_start]<meta name="keywords" content="LG subscription Malaysia, LG monthly payment Malaysia, LG water purifier subscription, LG air purifier Malaysia, LG TV installment Malaysia [cite: 8]">
+    <meta name="description" content="Subscribe to LG TVs, refrigerators, washers, air conditioners, water purifiers and more in Malaysia. Affordable monthly payment plans. WhatsApp 0142626792 today.">
+    <meta name="keywords" content="LG subscription Malaysia, LG monthly payment Malaysia, LG water purifier subscription, LG air purifier Malaysia, LG TV installment Malaysia">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
       "@type": "Product",
-      "name": "LG Subscription Malaysia Plans",
-      [cite_start]"description": "Premium LG home appliances on monthly subscription plans [cite: 7]",
-      "brand": {
-        "@type": "Brand",
-        "name": "LG"
-      },
+      "name": "LG Subscription Malaysia",
+      "description": "Premium LG home appliances on monthly subscription plans",
+      "brand": {"@type": "Brand", "name": "LG"},
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "MYR",
@@ -27,60 +24,19 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
-        :root {
-            --lg-red: #A50034;
-            --premium-black: #111111;
-            --soft-grey: #F5F5F7;
-        }
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; overflow-x: hidden; }
-        
-        [cite_start]/* Glassmorphism Header [cite: 3] */
-        .glass-header {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        [cite_start]/* Hero Slider [cite: 3, 4] */
-        .slider-container { position: relative; height: 80vh; overflow: hidden; }
-        .slide {
-            position: absolute; width: 100%; height: 100%; opacity: 0;
-            transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex; align-items: center; justify-content: center;
-        }
-        .slide.active { opacity: 1; z-index: 10; }
-
-        [cite_start]/* Card Effects [cite: 3] */
-        .product-card {
-            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
-            border-radius: 24px;
-        }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.12);
-        }
-
-        /* Mobile Menu */
-        #mobile-menu {
-            transition: transform 0.3s ease-in-out;
-            transform: translateX(100%);
-        }
-        #mobile-menu.open { transform: translateX(0); }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-white">
+<body class="bg-white text-black antialiased">
 
     <nav class="glass-header sticky top-0 z-[100] w-full">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <span class="text-2xl font-bold tracking-tighter text-black">LG <span class="font-light text-gray-500">Subscribe</span></span>
+            <div class="flex items-center gap-2 cursor-pointer" onclick="filterProducts('All')">
+                <span class="text-2xl font-bold tracking-tighter">LG <span class="font-light text-gray-500">Subscribe</span></span>
             </div>
             
-            <div class="hidden lg:flex items-center space-x-10 text-[13px] font-medium tracking-wide uppercase">
+            <div class="hidden lg:flex items-center space-x-10 text-[12px] font-bold tracking-widest uppercase">
+                <button onclick="scrollToSection('hero')" class="hover:text-red-600 transition">Discover</button>
+                <button onclick="scrollToSection('why-lg')" class="hover:text-red-600 transition">LG Subscribe</button>
                 <button onclick="filterProducts('TV')" class="hover:text-red-600 transition">TV/Audio</button>
                 <button onclick="filterProducts('Appliances')" class="hover:text-red-600 transition">Appliances</button>
                 <button onclick="filterProducts('Air')" class="hover:text-red-600 transition">Air Solutions</button>
@@ -88,193 +44,134 @@
             </div>
 
             <div class="flex items-center gap-4">
-                [cite_start]<a href="https://wa.me/60142626792" class="bg-black text-white px-6 py-2.5 rounded-full text-xs font-bold hover:bg-gray-800 transition transform active:scale-95 [cite: 3]">
-                    CONTACT AGENT
+                <a href="https://wa.me/60142626792" class="bg-black text-white px-7 py-2.5 rounded-full text-[11px] font-bold hover:bg-gray-800 transition transform active:scale-95 shadow-xl">
+                    APPLY NOW
                 </a>
-                <button onclick="toggleMenu()" class="lg:hidden text-2xl"><i class="fa fa-bars"></i></button>
+                <button onclick="toggleMenu()" class="lg:hidden text-2xl p-2"><i class="fa fa-bars"></i></button>
             </div>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-white z-[110] p-10 flex flex-col">
-        <button onclick="toggleMenu()" class="self-end text-3xl mb-10"><i class="fa fa-times"></i></button>
-        <div class="flex flex-col space-y-8 text-2xl font-bold">
-            <button onclick="filterAndClose('TV')">TV/Audio</button>
-            <button onclick="filterAndClose('Appliances')">Appliances</button>
-            <button onclick="filterAndClose('Air')">Air Solutions</button>
-            <button onclick="filterAndClose('Computing')">Computing</button>
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-[110] p-8 flex flex-col translate-x-full transition-transform duration-500">
+        <div class="flex justify-between items-center mb-12">
+            <span class="text-xl font-bold">Menu</span>
+            <button onclick="toggleMenu()" class="text-3xl"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="flex flex-col space-y-6 text-2xl font-bold">
+            <button onclick="filterAndClose('All')" class="text-left border-b pb-4">Discover</button>
+            <button onclick="filterAndClose('LG Subscribe')" class="text-left border-b pb-4">LG Subscribe</button>
+            <button onclick="filterAndClose('TV')" class="text-left border-b pb-4">TV/Audio</button>
+            <button onclick="filterAndClose('Appliances')" class="text-left border-b pb-4">Appliances</button>
+            <button onclick="filterAndClose('Air')" class="text-left border-b pb-4">Air Solutions</button>
+            <button onclick="filterAndClose('Computing')" class="text-left border-b pb-4">Computing</button>
         </div>
     </div>
 
-    <section class="slider-container bg-[#F5F5F7]">
-        <div class="slide active bg-gray-100">
-            <div class="text-center px-6">
-                [cite_start]<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Upgrade Your Home<br>with LG Subscription [cite: 4]</h1>
-                <p class="text-lg text-gray-500">Simple monthly payments. Zero worries.</p>
+    <section id="hero" class="slider-container">
+        <div class="slide active bg-[#F5F5F7]">
+            <div class="text-center px-6 max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-none">Upgrade Your Home<br>with LG Subscription</h1>
+                <p class="text-xl text-gray-500 font-light mb-10">Experience the future of smart living today.</p>
+                <button onclick="scrollToSection('shop')" class="bg-black text-white px-12 py-5 rounded-full font-bold text-sm tracking-widest hover:scale-105 transition">VIEW CATALOG</button>
             </div>
         </div>
         <div class="slide bg-black text-white">
             <div class="text-center px-6">
-                [cite_start]<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Premium OLED TV<br>from RM 150/month [cite: 4]</h1>
-                <p class="text-lg text-gray-400">Cinematic experience at home.</p>
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-none">Premium OLED TV<br>from RM 150/month</h1>
+                <p class="text-xl text-gray-400 font-light">The gold standard of home entertainment.</p>
             </div>
         </div>
         <div class="slide bg-white">
             <div class="text-center px-6">
-                [cite_start]<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Smart Living with<br>LG Water & Air Care [cite: 4]</h1>
-                <p class="text-lg text-gray-500">Pure water and clean air for your family.</p>
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-none">Smart Living with<br>LG Water & Air Care</h1>
+                <p class="text-xl text-gray-500 font-light">Pure health for your family, delivered monthly.</p>
             </div>
         </div>
-        <div class="slide bg-gray-50">
+        <div class="slide bg-[#F5F5F7]">
             <div class="text-center px-6">
-                [cite_start]<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6">Flexible Subscription.<br>No Big Upfront Cost. [cite: 4, 5]</h1>
-                <button onclick="scrollToGrid()" class="mt-8 bg-black text-white px-10 py-4 rounded-full font-bold">START BROWSING</button>
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-8 leading-none">Flexible Subscription.<br>No Big Upfront Cost.</h1>
+                <p class="text-xl text-gray-500 font-light">Ownership made effortless and affordable.</p>
             </div>
         </div>
     </section>
 
-    <section id="shop" class="py-20 max-w-7xl mx-auto px-6">
-        <div class="flex overflow-x-auto pb-6 gap-4 no-scrollbar justify-center">
-            <button onclick="filterProducts('All')" class="filter-btn active px-8 py-3 rounded-full border border-black bg-black text-white text-sm font-semibold whitespace-nowrap transition">All Products</button>
-            <button onclick="filterProducts('TV')" class="filter-btn px-8 py-3 rounded-full border border-gray-200 text-sm font-semibold whitespace-nowrap hover:border-black transition">TV/Audio</button>
-            <button onclick="filterProducts('Refrigerator')" class="filter-btn px-8 py-3 rounded-full border border-gray-200 text-sm font-semibold whitespace-nowrap hover:border-black transition">Refrigerator</button>
-            <button onclick="filterProducts('Washer')" class="filter-btn px-8 py-3 rounded-full border border-gray-200 text-sm font-semibold whitespace-nowrap hover:border-black transition">Washer/Dryer</button>
-            <button onclick="filterProducts('Air Conditioner')" class="filter-btn px-8 py-3 rounded-full border border-gray-200 text-sm font-semibold whitespace-nowrap hover:border-black transition">Aircon</button>
-            <button onclick="filterProducts('Water Purifier')" class="filter-btn px-8 py-3 rounded-full border border-gray-200 text-sm font-semibold whitespace-nowrap hover:border-black transition">Water Purifier</button>
-            <button onclick="filterProducts('Air Purifier')" class="filter-btn px-8 py-3 rounded-full border border-gray-200 text-sm font-semibold whitespace-nowrap hover:border-black transition">Air Purifier</button>
+    <section id="why-lg" class="py-32 bg-white max-w-7xl mx-auto px-6">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">Why LG Rent-Up™?</h2>
+            <p class="text-gray-400">The premium alternative to outright purchase.</p>
         </div>
-
-        <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="text-center">
+                <div class="mb-6 text-4xl"><i class="fa fa-wallet"></i></div>
+                <h3 class="text-xl font-bold mb-4">Zero Upfront</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Upgrade your lifestyle without the heavy initial investment. Low monthly payments that fit your budget.</p>
             </div>
+            <div class="text-center">
+                <div class="mb-6 text-4xl"><i class="fa fa-shield-heart"></i></div>
+                <h3 class="text-xl font-bold mb-4">Full Care Service</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Enjoy peace of mind with inclusive regular maintenance and filter changes by authorized LG technicians.</p>
+            </div>
+            <div class="text-center">
+                <div class="mb-6 text-4xl"><i class="fa fa-house-chimney-user"></i></div>
+                <h3 class="text-xl font-bold mb-4">100% Ownership</h3>
+                <p class="text-gray-500 text-sm leading-relaxed">Unlike traditional rentals, you own the product completely at the end of your chosen subscription period.</p>
+            </div>
+        </div>
     </section>
 
-    <footer class="bg-[#F5F5F7] py-20 px-6 mt-20">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-                [cite_start]<span class="text-xl font-bold">LG Subscription Store Malaysia [cite: 1]</span>
-                <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-                    [cite_start]Premium living made accessible through flexible monthly plans. [cite: 7]
+    <section id="shop" class="py-24 bg-[#FAFAFA]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex overflow-x-auto pb-10 gap-3 no-scrollbar justify-start md:justify-center">
+                <button onclick="filterProducts('All')" class="filter-btn active">All</button>
+                <button onclick="filterProducts('TV')" class="filter-btn">TV/Audio</button>
+                <button onclick="filterProducts('Refrigerator')" class="filter-btn">Refrigerator</button>
+                <button onclick="filterProducts('Washer')" class="filter-btn">Washer/Dryer</button>
+                <button onclick="filterProducts('Air Conditioner')" class="filter-btn">Aircon</button>
+                <button onclick="filterProducts('Water Purifier')" class="filter-btn">Water Purifier</button>
+                <button onclick="filterProducts('Air Purifier')" class="filter-btn">Air Purifier</button>
+                <button onclick="filterProducts('Accessories')" class="filter-btn">Accessories</button>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-white pt-32 pb-16 px-6">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+            <div class="lg:col-span-2">
+                <span class="text-2xl font-bold tracking-tighter">LG Subscription Store Malaysia</span>
+                <p class="mt-6 text-gray-500 text-sm leading-loose max-w-md">
+                    Bringing premium technology to every Malaysian home through innovative and affordable monthly subscription plans. Excellence in service, guaranteed by authorized expertise.
                 </p>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Contact</h4>
-                [cite_start]<a href="https://wa.me/60142626792" class="text-lg font-medium hover:underline text-green-600"><i class="fab fa-whatsapp"></i> 014-262 6792 [cite: 1]</a>
+                <h4 class="font-bold text-xs tracking-widest uppercase mb-6">Contact Us</h4>
+                <a href="https://wa.me/60142626792" class="text-2xl font-bold hover:underline">014-262 6792</a>
+                <p class="text-sm text-gray-400 mt-2 italic">WhatsApp for instant check</p>
             </div>
             <div>
-                <h4 class="font-bold mb-4">Categories</h4>
-                <ul class="text-sm space-y-2 text-gray-500">
-                    [cite_start]<li>OLED & QNED TVs [cite: 3]</li>
-                    [cite_start]<li>Refrigerators & Washers [cite: 3]</li>
-                    [cite_start]<li>Air Solutions [cite: 3]</li>
+                <h4 class="font-bold text-xs tracking-widest uppercase mb-6">Quick Links</h4>
+                <ul class="text-sm space-y-4 font-medium text-gray-400">
+                    <li><button onclick="filterProducts('TV')" class="hover:text-black transition">Entertainment</button></li>
+                    <li><button onclick="filterProducts('Appliances')" class="hover:text-black transition">Kitchen & Laundry</button></li>
+                    <li><button onclick="filterProducts('Air')" class="hover:text-black transition">Air Solutions</button></li>
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto border-t border-gray-200 mt-16 pt-8 text-[11px] text-gray-400 text-center uppercase tracking-widest leading-loose">
-            [cite_start][cite: 9] “LG Subscription Store Malaysia is an independent authorized dealer. We are not the official website of LG Electronics Malaysia.”
+        
+        <div class="max-w-7xl mx-auto border-t border-gray-100 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+            <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.2em] text-center md:text-left">
+                “LG Subscription Store Malaysia is an independent authorized dealer. [cite_start]We are not the official website of LG Electronics Malaysia.” [cite: 1]
+            </p>
+            <p class="text-[10px] text-gray-400">© 2026 LG Subscription Store Malaysia.</p>
         </div>
     </footer>
 
-    <a href="https://wa.me/60142626792" class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-[100] hover:scale-110 transition active:scale-95">
+    <a href="https://wa.me/60142626792" class="fixed bottom-8 right-8 z-[100] bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300">
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <script>
-        const products = [
-            // Sample of 40-50 products logic
-            { cat: 'TV', name: 'OLED evo C3 65"', code: 'OLED65C3PSA', price: '150', features: ['α9 AI Processor Gen6', 'Self-lit Pixels', 'Dolby Vision IQ'] },
-            { cat: 'TV', name: 'QNED81 75" 4K', code: '75QNED81SRA', price: '120', features: ['Quantum Dot Nanocell', '120Hz Refresh Rate', 'AI Sound Pro'] },
-            { cat: 'Refrigerator', name: 'InstaView™ Door-in-Door™', code: 'GC-X257CSES', price: '180', features: ['Knock to See Inside', 'Linear Cooling™', 'Hygiene Fresh+™'] },
-            { cat: 'Water Purifier', name: 'PuriCare™ Tankless Hot/Cold', code: 'WD518AN', price: '60', features: ['High Temp Sterilization', 'UV Nano Outlet', '4-Stage Filtration'] },
-            { cat: 'Air Conditioner', name: 'ARTCOOL™ Mirror Inverter', code: 'A13BKC', price: '110', features: ['Ionizer Air Purification', 'Dual Inverter', 'Smart Diagnosis'] },
-            { cat: 'Washer', name: 'Vivace AI DD™ Washer', code: 'FV1413S2W', price: '95', features: ['13kg Capacity', 'TurboWash™ 360', 'Steam™ Allergy Care'] },
-            { cat: 'Air Purifier', name: 'PuriCare™ 360° Hit', code: 'AS60GHWG0', price: '40', features: ['PM1.0 Sensor', '360° All-around Care', 'H13 HEPA Filter'] },
-            { cat: 'Vacuum Cleaner', name: 'CordZero™ A9 Kompressor™', code: 'A9K-MAX', price: '90', features: ['All-in-One Tower™', 'Power Drive™ Mop', '10-Year Motor Warranty'] },
-            // ... Logic to repeat/populate up to 40+ items
-        ];
-
-        // Generate more mock products to reach 40+ count
-        for (let i = 0; i < 35; i++) {
-            products.push({
-                cat: ['TV', 'Refrigerator', 'Washer', 'Air Conditioner', 'Water Purifier', 'Accessories'][i % 6],
-                name: `LG Premium Series ${i+9}`,
-                code: `LG-MDL-${1000 + i}`,
-                price: (40 + (i * 5)).toString(),
-                features: ['Premium Feature 1', 'Premium Feature 2', 'Smart Connectivity']
-            });
-        }
-
-        const grid = document.getElementById('product-grid');
-
-        function renderProducts(list) {
-            grid.innerHTML = list.map(p => `
-                <div class="product-card bg-white border border-gray-100 p-6 flex flex-col h-full group">
-                    <div class="h-48 bg-gray-50 rounded-2xl mb-6 flex items-center justify-center relative overflow-hidden">
-                        [cite_start]<span class="text-gray-300 font-bold opacity-40 text-sm uppercase tracking-widest italic">LG Product Image [cite: 3]</span>
-                    </div>
-                    <div class="flex-grow">
-                        [cite_start]<h3 class="font-bold text-lg leading-tight mb-1 text-black">${p.name} [cite: 3]</h3>
-                        [cite_start]<p class="text-[10px] text-gray-400 font-mono mb-4 uppercase tracking-tighter">${p.code} [cite: 4]</p>
-                        <ul class="space-y-2 mb-6">
-                            [cite_start]${p.features.map(f => `<li class="text-xs text-gray-500 flex items-start"><i class="fa fa-check text-[8px] mt-1 mr-2 text-black"></i> ${f} [cite: 4]</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div class="pt-4 border-t border-gray-50">
-                        <div class="flex justify-between items-end mb-4">
-                            <div>
-                                [cite_start]<p class="text-[10px] text-gray-400 font-bold uppercase">Monthly [cite: 4]</p>
-                                <p class="text-xl font-bold text-black">RM ${p.price}<span class="text-[10px] font-medium"> /mo</span></p>
-                            </div>
-                        </div>
-                        [cite_start]<a href="https://wa.me/60142626792?text=Hi%20I%20am%20interested%20in%20${encodeURIComponent(p.name)}%20[cite: 4]" 
-                           class="block w-full bg-black text-white text-center py-3.5 rounded-xl text-xs font-bold hover:bg-red-700 transition duration-300 transform active:scale-95 uppercase tracking-widest">
-                            [cite_start]Enquire on WhatsApp [cite: 3]
-                        </a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function filterProducts(type) {
-            const buttons = document.querySelectorAll('.filter-btn');
-            buttons.forEach(btn => {
-                if(btn.innerText.includes(type) || (type === 'All' && btn.innerText.includes('All'))) {
-                    btn.classList.add('bg-black', 'text-white');
-                    btn.classList.remove('text-gray-500');
-                } else {
-                    btn.classList.remove('bg-black', 'text-white');
-                }
-            });
-
-            if(type === 'All') renderProducts(products);
-            else renderProducts(products.filter(p => p.cat.includes(type) || p.name.includes(type)));
-            
-            if(type !== 'All') scrollToGrid();
-        }
-
-        [cite_start]// Slider Auto-Rotate [cite: 3]
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        setInterval(() => {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
-        }, 5000);
-
-        function toggleMenu() {
-            document.getElementById('mobile-menu').classList.toggle('open');
-        }
-
-        function filterAndClose(type) {
-            filterProducts(type);
-            toggleMenu();
-        }
-
-        function scrollToGrid() {
-            document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        // Init
-        renderProducts(products);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
