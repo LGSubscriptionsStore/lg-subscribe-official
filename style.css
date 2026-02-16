@@ -30,3 +30,68 @@ body { font-family: 'Segoe UI', sans-serif; color: var(--dark); line-height: 1.6
 
 /* Buttons */
 .btn { background: var(--lg-red); color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 4px; font-weight: 600; display: inline-block; border: none; cursor: pointer; }
+
+/* Join Us Section */
+.join-us-section {
+    padding: 100px 0;
+    background-color: var(--light-grey);
+}
+
+.join-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.eyebrow {
+    color: var(--lg-red);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.join-content h2 {
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.benefit-list {
+    list-style: none;
+    margin: 30px 0 40px 0;
+}
+
+.benefit-list li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.benefit-list li i {
+    color: var(--lg-red);
+    margin-right: 15px;
+    width: 20px;
+}
+
+.join-image img {
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .join-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .join-content h2 {
+        font-size: 32px;
+    }
+}
