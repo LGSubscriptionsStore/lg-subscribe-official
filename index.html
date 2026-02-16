@@ -1,64 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LG Subscribe Malaysia | Official Campaign</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LG Subscription Malaysia | Monthly LG Appliances & TV Plans</title>
+    <meta name="description" content="Subscribe to LG TVs, refrigerators, washers, air conditioners, water purifiers and more in Malaysia. Affordable monthly payment plans. WhatsApp 0142626792 today.">
+    <meta name="keywords" content="LG subscription Malaysia, LG monthly payment Malaysia, LG water purifier subscription, LG air purifier Malaysia, LG TV installment Malaysia">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-white text-[#1d1d1f]">
 
-<header class="header">
-  <div class="logo">LG Subscribe MY</div>
-  <nav class="nav" id="navMenu">
-    <a href="#">Products</a>
-    <a href="#contact">Contact</a>
-  </nav>
-  <div class="hamburger" onclick="toggleMenu()">☰</div>
-</header>
+    <nav class="glass-header sticky top-0 z-[1000] border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://www.lg.com/lg5-common/images/header/logo.png" alt="LG Logo" class="h-8">
+                <div class="h-6 w-[1px] bg-gray-200 mx-2"></div>
+                <span class="text-[10px] font-black tracking-[0.2em] text-gray-400 uppercase">Subscription Store</span>
+            </div>
+            <div class="hidden lg:flex gap-10 text-[11px] font-bold uppercase tracking-widest text-gray-500">
+                <button onclick="filterProducts('Water Purifier')">Water Care</button>
+                <button onclick="filterProducts('Air Purifier')">Air Solution</button>
+                <button onclick="filterProducts('TV')">Home Entertainment</button>
+                <button onclick="filterProducts('Washer')">Laundry</button>
+            </div>
+            <a href="https://wa.me/60142626792" class="bg-black text-white px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest shadow-xl hover:scale-105 transition-all">WhatsApp Agent</a>
+        </div>
+    </nav>
 
-<section class="hero-slider">
-  <div class="slide active">
-    <h1>Life’s Good with LG Subscription</h1>
-    <p>Premium Appliances with Flexible Plans</p>
-  </div>
-  <div class="slide">
-    <h1>Refrigerator Promotion</h1>
-    <p>From RM160/month</p>
-  </div>
-  <div class="slide">
-    <h1>Monitor Subscription</h1>
-    <p>RM120/month - 5 Years</p>
-  </div>
-</section>
+    <section class="relative h-[80vh] bg-black overflow-hidden" id="hero-slider">
+        <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://www.lg.com/my/images/lg-subscribe/banner-pc.jpg');">
+            <div class="h-full flex flex-col items-center justify-center text-center text-white px-6">
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-6">Upgrade Your Home</h1>
+                <p class="text-xl font-light opacity-80">Premium living with LG Rent-Up™ Subscription. RM1* Registration.</p>
+            </div>
+        </div>
+        <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://www.lg.com/my/images/tvs/md07567781/gallery/GT1.jpg');">
+            <div class="h-full flex flex-col items-center justify-center text-center text-white px-6">
+                <h1 class="text-5xl md:text-8xl font-bold tracking-tighter mb-6">Cinematic OLED</h1>
+                <p class="text-xl font-light opacity-80">Subscription plans from RM150/month. No big upfront cost.</p>
+            </div>
+        </div>
+    </section>
 
-<section class="product-grid">
-  <div class="product-card">
-    <h3>20kg Washing Machine</h3>
-    <p>From RM110/month</p>
-  </div>
-  <div class="product-card">
-    <h3>601L InstaView Refrigerator</h3>
-    <p>From RM180/month</p>
-  </div>
-  <div class="product-card">
-    <h3>27” 4K UHD Monitor</h3>
-    <p>RM120/month</p>
-  </div>
-</section>
+    <section class="py-12 bg-[#f5f5f7] border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 flex gap-3 overflow-x-auto no-scrollbar">
+            <button onclick="filterProducts('All')" class="filter-btn active">All</button>
+            <button onclick="filterProducts('Water Purifier')" class="filter-btn">Water Purifier</button>
+            <button onclick="filterProducts('Air Purifier')" class="filter-btn">Air Purifier</button>
+            <button onclick="filterProducts('TV')" class="filter-btn">TV & Audio</button>
+            <button onclick="filterProducts('Refrigerator')" class="filter-btn">Refrigerator</button>
+            <button onclick="filterProducts('Washer')" class="filter-btn">Washer & Dryer</button>
+        </div>
+    </section>
 
-<section id="contact" class="contact">
-  <h2>Contact Us</h2>
-  <p>WhatsApp us directly for subscription details</p>
-  <a href="https://wa.me/60142626792" class="btn-primary">Chat on WhatsApp</a>
-</section>
+    <main class="max-w-7xl mx-auto px-6 py-20">
+        <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+            </div>
+    </main>
 
-<footer class="footer">
-  <p>© 2026 LG Subscribe Malaysia</p>
-</footer>
+    <section class="py-20 bg-gray-50 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12 bg-white p-12 rounded-[40px] shadow-sm">
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-3xl font-bold mb-4">Latest Digital Brochure</h2>
+                <p class="text-gray-500 mb-6 leading-relaxed">Scan to download our full 2025/2026 price list and subscription combinations from the official PDF.</p>
+            </div>
+            <img src="Screenshot_20260216_222519.jpg" alt="QR Brochure" class="w-48 h-48 rounded-3xl border p-2 shadow-inner">
+        </div>
+    </section>
 
-<a href="https://wa.me/60142626792" class="whatsapp-float">💬</a>
+    <footer class="bg-white py-20 border-t border-gray-100 text-center px-6">
+        <p class="text-[10px] text-gray-400 font-bold uppercase tracking-[0.3em] mb-8 leading-loose">
+            “LG Subscription Store Malaysia is an independent authorized dealer. <br>We are not the official website of LG Electronics Malaysia.”
+        </p>
+        <p class="text-sm font-bold">Contact Agent: 014-262 6792</p>
+    </footer>
 
+    <a href="https://wa.me/60142626792" class="fixed bottom-10 right-10 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl z-[2000] hover:scale-110 transition-transform">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script src="script.js"></script>
 </body>
 </html>
