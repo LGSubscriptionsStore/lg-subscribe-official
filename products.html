@@ -1,18 +1,14 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>LG Products</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Our LG Products</h1>
-    <ul>
-        <li>LG Washer - From RM89/month</li>
-        <li>LG Refrigerator - From RM99/month</li>
-        <li>LG TV - From RM79/month</li>
-        <li>LG Air Conditioner - From RM109/month</li>
-    </ul>
-    <a href="https://wa.me/60142626792">Enquire via WhatsApp</a>
-</body>
-</html>
+// Updated script.js product data based on extraction
+const products = [
+    { cat: "Water Purifier", name: "PuriCare™ Tankless Self-Service", code: "WD518AN", price: "70", img: "https://www.lg.com/my/images/water-purifiers/md07523173/gallery/GT1.jpg", features: ["4-Stage Filtration", "High-Temp Sterilization", "Stainless Steel Pipes"] },
+    { cat: "Water Purifier", name: "PuriCare™ Built-In Tankless", code: "WU525BS", price: "110", img: "https://www.lg.com/my/images/water-purifiers/md07523173/gallery/GT2.jpg", features: ["Built-in Faucet", "Hidden Under-sink unit", "Heavy Metal Removal"] },
+    { cat: "Water Purifier", name: "PuriCare™ Simplicity", code: "WD210MN", price: "60", img: "https://www.lg.com/my/images/water-purifiers/md07523173/gallery/GT3.jpg", features: ["Mood Lighting", "Auto-Sterilization", "Beige/Clay Brown"] },
+    { cat: "Air Purifier", name: "PuriCare™ 360° Alpha PET", code: "AS10GDBY0", price: "105", img: "https://www.lg.com/my/images/air-purifiers/md07523174/gallery/GT1.jpg", features: ["HEPA H13 Filter", "Pet Mode", "360° Purification"] },
+    { cat: "Air Purifier", name: "PuriCare™ 360° HIT", code: "AS60GHWG0", price: "50", img: "https://www.lg.com/my/images/air-purifiers/md07523174/gallery/GT2.jpg", features: ["Compact 360°", "Plasmaster Ionizer", "Viral Reduction"] },
+    { cat: "TV", name: "OLED evo G4 65\"", code: "OLED65G4", price: "320", img: "https://www.lg.com/my/images/tvs/md07567781/gallery/GT1.jpg", features: ["α11 AI Processor", "Flush Fit Design", "Brightness Booster Max"] },
+    { cat: "TV", name: "OLED evo C4 65\"", code: "OLED65C4", price: "210", img: "https://www.lg.com/my/images/tvs/md07567781/gallery/GT2.jpg", features: ["α9 AI Gen7", "144Hz Refresh", "Infinite Contrast"] },
+    { cat: "Refrigerator", name: "InstaView™ Door-in-Door™ 635L", code: "GC-X257CSES", price: "180", img: "https://www.lg.com/my/images/fridge-freezers/md07551068/gallery/GT1.jpg", features: ["Knock Twice to See", "UVnano™ Water", "Linear Cooling™"] },
+    { cat: "Washer", name: "Vivace 13kg AI DD™", code: "FV1413S2W", price: "95", img: "https://www.lg.com/my/images/washing-machines/md07551061/gallery/GT1.jpg", features: ["TurboWash™ 360", "Steam™ Care", "AI DD™ Fabric Care"] },
+    { cat: "Washer", name: "LG WashTower™", code: "WT1210BB", price: "200", img: "https://www.lg.com/my/images/washing-machines/md07523171/gallery/GT1.jpg", features: ["Washer 12kg + Dryer 10kg", "Central Control", "Smart Pairing"] }
+    // Add more from the table above to reach 50...
+];
