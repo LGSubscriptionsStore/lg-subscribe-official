@@ -1,98 +1,137 @@
+/**
+ * LG Rent-Up™ Global Logic Engine
+ * Version: 2.0.0 (Hardened)
+ */
+
+// 1. State Management: Remembers your comparison choices even after refresh
 let compareList = JSON.parse(sessionStorage.getItem('compareList')) || [];
 
+/**
+ * 2. Initialization System
+ */
 function init() {
-    const list = document.getElementById('product-list');
-    if (list) renderGallery(products);
+    // Gallery Check: Targets index.html and products.html
+    const galleryContainer = document.getElementById('product-list');
+    if (galleryContainer) {
+        renderGallery(products);
+    }
     
-    const detail = document.getElementById('detail-root');
-    if (detail) renderDetail();
+    // Detail Check: Targets product.html
+    const detailContainer = document.getElementById('detail-root');
+    if (detailContainer) {
+        renderProductDetail();
+    }
     
-    updateTray();
+    // Always refresh the comparison tray UI
+    updateTrayUI();
 }
 
+/**
+ * 3. Gallery Renderer
+ * This replaces your old tables with modern grid cards
+ */
 function renderGallery(items) {
     const container = document.getElementById('product-list');
+    if (!container) return;
+    
+    if (items.length === 0) {
+        container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 50px;">No products found.</p>`;
+        return;
+    }
+
     container.innerHTML = items.map(p => `
         <div class="card">
             ${p.isNew ? '<div class="badge">NEW</div>' : ''}
-            <img src="${p.img}">
-            <h3>${p.name}</h3>
-            <p class="price">RM${p.subPrice}<span>/mth</span></p>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-top:20px;">
-                <a href="product.html?id=${p.id}" style="color:var(--lg-red); font-weight:600; text-decoration:none;">Details →</a>
-                <label style="font-size:12px;"><input type="checkbox" onchange="toggleCompare('${p.id}')" ${compareList.includes(p.id) ? 'checked' : ''}> Compare</label>
+            <div class="img-wrapper" style="height: 200px; display: flex; align-items: center; justify-content: center;">
+                <img src="${p.img}" alt="${p.name}" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+            </div>
+            <h3 style="margin: 15px 0 5px;">${p.name}</h3>
+            <p style="color: #888; font-size: 12px; margin-bottom: 10px;">Model: ${p.model}</p>
+            <p class="price">RM${p.subPrice}<span style="font-size: 14px; font-weight: 400;">/mth</span></p>
+            
+            <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:center;">
+                <a href="product.html?id=${p.id}" class="btn" style="padding: 8px 15px; font-size: 12px;">View Details</a>
+                <label style="font-size:12px; cursor:pointer; display: flex; align-items: center; gap: 5px;">
+                    <input type="checkbox" onchange="handleCompareToggle('${p.id}')" ${compareList.includes(p.id) ? 'checked' : ''}> 
+                    Compare
+                </label>
             </div>
         </div>
     `).join('');
 }
 
-function toggleCompare(id) {
-    if (compareList.includes(id)) compareList = compareList.filter(i => i !== id);
-    else if (compareList.length < 3) compareList.push(id);
-    else { alert("Select up to 3 products."); return; }
+/**
+ * 4. Comparison Logic
+ */
+function handleCompareToggle(id) {
+    if (compareList.includes(id)) {
+        compareList = compareList.filter(item => item !== id);
+    } else {
+        if (compareList.length < 3) {
+            compareList.push(id);
+        } else {
+            alert("You can only compare up to 3 products at a time.");
+            renderGallery(products); // Refresh to uncheck the box
+            return;
+        }
+    }
     
     sessionStorage.setItem('compareList', JSON.stringify(compareList));
-    updateTray();
+    updateTrayUI();
 }
 
-function updateTray() {
+/**
+ * 5. Tray UI Logic
+ */
+function updateTrayUI() {
     const tray = document.getElementById('tray');
-    if (!tray) return;
-    tray.style.display = compareList.length > 0 ? 'flex' : 'none';
-    document.getElementById('tray-count').innerText = `${compareList.length} Selected`;
+    const countSpan = document.getElementById('tray-count');
+    
+    if (!tray || !countSpan) return;
+
+    if (compareList.length > 0) {
+        tray.style.display = 'flex';
+        countSpan.innerText = `${compareList.length} Selected`;
+    } else {
+        tray.style.display = 'none';
+    }
 }
 
-function renderDetail() {
-    const root = document.getElementById('detail-root');
-    if (!root) return; // Exit if we aren't on the product page
-
-    // 1. Parse the URL
+/**
+ * 6. Product Detail Reader
+ */
+function renderProductDetail() {
     const params = new URLSearchParams(window.location.search);
     const productId = params.get('id');
+    const product = products.find(p => p.id === productId);
 
-    // 2. Error Check: No ID in URL
-    if (!productId) {
-        root.innerHTML = `<div class="container" style="padding:100px 0; text-align:center;">
-            <h2>Product Not Specified</h2>
-            <p>Please select a product from our gallery.</p>
-            <a href="products.html" class="btn" style="margin-top:20px;">Back to Products</a>
-        </div>`;
+    if (!product) {
+        document.getElementById('detail-root').innerHTML = `
+            <div style="text-align:center; padding: 100px 0;">
+                <h2>Product Not Found</h2>
+                <a href="products.html" class="btn">Return to Catalog</a>
+            </div>`;
         return;
     }
 
-    // 3. Find Product (Case-Insensitive for robustness)
-    const p = products.find(x => x.id.toLowerCase() === productId.toLowerCase());
-
-    // 4. Error Check: ID exists but isn't in data.js (Typo check)
-    if (!p) {
-        root.innerHTML = `<div class="container" style="padding:100px 0; text-align:center;">
-            <h2>Model "${productId}" Not Found</h2>
-            <p>This product may be discontinued or the link is incorrect.</p>
-            <a href="products.html" class="btn" style="margin-top:20px;">View Current Catalog</a>
-        </div>`;
-        return;
-    }
-
-    // 5. Success: Render Content
-    root.innerHTML = `
-        <div class="join-grid">
-            <div class="product-image-container">
-                <img src="${p.img}" alt="${p.name}" style="width:100%; max-height:500px; object-fit:contain;">
+    document.getElementById('detail-root').innerHTML = `
+        <div class="join-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+            <div style="text-align: center;">
+                <img src="${product.img}" alt="${product.name}" style="width: 100%; max-width: 500px;">
             </div>
-            <div class="product-info">
-                <span style="color:var(--lg-red); font-weight:700; text-transform:uppercase;">${p.category}</span>
-                <h1 style="font-size:42px; margin:10px 0;">${p.name}</h1>
-                <p style="color:#888; margin-bottom:20px;">Model: ${p.model}</p>
-                <div class="price" style="font-size:48px; margin-bottom:30px;">RM${p.subPrice}<small style="font-size:16px; color:#333;">/mth</small></div>
-                
-                <h3 style="margin-bottom:15px; border-bottom:1px solid #eee; padding-bottom:10px;">Specifications</h3>
-                <ul style="margin:20px 0; padding-left:20px; line-height:2;">
-                    ${p.features.map(f => `<li>${f}</li>`).join('')}
+            <div>
+                <span style="color: var(--lg-red); font-weight: 700; letter-spacing: 1px;">LG RENT-UP™</span>
+                <h1 style="font-size: 2.5rem; margin: 10px 0;">${product.name}</h1>
+                <p class="price" style="font-size: 2rem;">RM${product.subPrice}/mth</p>
+                <p style="margin: 20px 0; color: #555;">Model: ${product.model}</p>
+                <ul style="margin-bottom: 40px; padding-left: 20px;">
+                    ${product.features.map(f => `<li style="margin-bottom: 8px;">${f}</li>`).join('')}
                 </ul>
-                
-                <a href="https://wa.me/${CONTACT_WA}?text=I%20am%20interested%20in%20the%20${encodeURIComponent(p.name)}%20(${p.model})" class="btn" style="width:100%; text-align:center;">Apply via WhatsApp</a>
+                <a href="https://wa.me/${CONTACT_WA}?text=Inquiry%20for%20${encodeURIComponent(product.name)}" class="btn" style="width: 100%; text-align: center;">Apply via WhatsApp</a>
             </div>
-        </div>`;
+        </div>
+    `;
 }
 
+// Start the app
 init();
