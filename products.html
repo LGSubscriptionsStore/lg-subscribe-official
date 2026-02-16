@@ -2,33 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>All Products | LG Rent-Up™</title>
+    <title>Products | LG Rent-Up™</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://www.lg.com/favicon.ico">
 </head>
 <body>
-    <header><div class="container"><nav><a href="index.html" class="logo">LG <span>RENT-UP</span></a><div class="nav-links"><a href="products.html">Products</a><a href="compare.html">Compare</a></div></nav></div></header>
-    
-    <div class="container">
-        <div class="filter-layout">
-            <aside>
-                <input type="text" id="search" placeholder="Search..." onkeyup="filterUI()" style="width:100%; padding:10px; margin-bottom:20px;">
-                <select id="cat" onchange="filterUI()" style="width:100%; padding:10px; margin-bottom:20px;">
-                    <option value="all">All Categories</option>
-                    <option value="tv">TV</option>
-                    <option value="kitchen">Kitchen</option>
-                </select>
-                <label><input type="checkbox" id="newCheck" onchange="filterUI()"> Show New Only</label>
-            </aside>
-            <main id="product-list" class="product-grid"></main>
-        </div>
-    </div>
-
-    <div id="compare-tray" class="compare-tray">
-        <span id="comp-count">0 Selected</span>
-        <a href="compare.html" class="btn-primary">Compare Now</a>
-    </div>
-
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <nav class="navbar"><div class="container nav-flex"><a href="index.html" class="logo">LG<span>RENT-UP</span></a><div class="nav-links"><a href="products.html">Products</a></div></div></nav>
+    <div class="container"><div id="product-list" class="grid"></div></div>
+    <div id="tray" class="tray"><span id="tray-count">0 Selected</span><a href="compare.html" class="btn" style="padding:10px 20px;">Compare Now</a></div>
+    <script src="data.js"></script><script src="script.js"></script>
 </body>
 </html>
