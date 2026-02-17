@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LG Rent-Up™ Malaysia | Official Ohsem Promo</title>
+    <title>LG Rent-Up™ Malaysia | Official Ohsem & Raya Deals</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container nav-flex">
             <a href="index.html" class="logo">LG<span>RENT-UP</span></a>
             <div class="nav-links">
-                <a href="products.html">Products</a>
+                <div class="dropdown">
+                    <a href="products.html" class="dropbtn">Products <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-content">
+                        <a href="product.html?id=ac-10hp-raya">Raya Aircond (RM95)</a>
+                        <a href="product.html?id=wash-tower-v5">LG WashTower™</a>
+                        <a href="product.html?id=styler-essence">LG Styler™</a>
+                        <hr>
+                        <a href="products.html">View All Promos</a>
+                    </div>
+                </div>
                 <a href="join-us.html">Join Us</a>
             </div>
         </div>
@@ -21,59 +31,47 @@
         <div class="slider-container">
             <div class="slide active" style="background-image: url('https://lgpuricareu.com/wp-content/uploads/2025/08/Ohsem-campaign-Ohsem-50.png');">
                 <div class="container slide-content">
-                    <div class="countdown-wrapper">
-                        <span class="eyebrow">OHSEM PROMO ENDS IN:</span>
-                        <div id="countdown" class="countdown-timer"></div>
-                    </div>
+                    <div class="promo-badge">Ends Feb 28: <span id="countdown"></span></div>
                     <h1>50% OFF <br><span>First 9 Months</span></h1>
-                    <p>Upgrade to LG's latest technology with RM0 upfront payment.</p>
-                    <a href="products.html" class="btn-main">Shop Ohsem Deals</a>
+                    <p>The biggest Ohsem deal of 2026. Zero upfront payment.</p>
+                    <a href="products.html" class="btn-main">Shop Ohsem</a>
                 </div>
             </div>
-
+            <div class="slide" style="background-image: url('https://lgpuricareu.com/wp-content/uploads/2025/08/Raya-Promo-Banner.png');">
+                <div class="container slide-content">
+                    <div class="promo-badge" style="background:#2e7d32">RAYA HOT DEALS</div>
+                    <h1>Hot Deals, <br><span>Cool Raya</span></h1>
+                    <p>Save RM5/month on Air Conditioners + FREE AeroFurniture gift!</p>
+                    <a href="products.html" class="btn-main" style="background:#2e7d32">View Raya Deals</a>
+                </div>
+            </div>
             <div class="slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7PtCnEx8uHDfz9blkaS7fVMh4WwD8xFxtUrhcKk6uZg&s=10');">
                 <div class="container slide-content">
-                    <h1>Smart Appliances</h1>
-                    <p>Experience effortless living with AI-powered LG washers and dryers.</p>
-                    <a href="products.html" class="btn-main">Browse Appliances</a>
+                    <h1>Modern Laundry</h1>
+                    <p>AI DD™ technology for the perfect wash every time.</p>
+                    <a href="products.html" class="btn-main">Explore Washers</a>
                 </div>
             </div>
-
-            <div class="slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVcDfn9i8Jvmw2kDyTT1bFlPg_ixT8NsjE7wT8D-I1vw&s');">
+            <div class="slide" style="background-image: url('https://raw.githubusercontent.com/Gemini-AI-Images/Join-Us-Career-Banner.png');">
                 <div class="container slide-content">
-                    <h1>Clean Air & Water</h1>
-                    <p>Protect your family with LG PuriCare™ advanced filtration systems.</p>
-                    <a href="products.html" class="btn-main">Explore PuriCare</a>
-                </div>
-            </div>
-
-            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1573161814212-426ce6169c73?auto=format&fit=crop&q=80&w=1000');">
-                <div class="container slide-content">
-                    <h1>Join Our Elite Team</h1>
-                    <p>Start your career as an LG Certified Subscription Consultant today.</p>
-                    <a href="join-us.html" class="btn-main">Become an Agent</a>
+                    <h1>Unlock Your <br><span>Potential</span></h1>
+                    <p>Join Malaysia's fastest growing LG Subscription team.</p>
+                    <a href="join-us.html" class="btn-main" style="background:#000">Apply Now</a>
                 </div>
             </div>
         </div>
-        
         <div class="slider-dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot active" onclick="setSlide(0)"></span>
+            <span class="dot" onclick="setSlide(1)"></span>
+            <span class="dot" onclick="setSlide(2)"></span>
+            <span class="dot" onclick="setSlide(3)"></span>
         </div>
     </header>
 
     <section class="container" style="padding: 60px 20px;">
-        <h2 style="text-align: center; margin-bottom: 40px;">Featured LG Models</h2>
-        <div id="product-list" class="grid">
-            </div>
+        <h2 style="text-align: center; margin-bottom: 40px;">Featured Promos</h2>
+        <div id="product-list" class="grid"></div>
     </section>
-
-    <div id="tray" class="tray">
-        <span id="tray-count">0 Selected</span>
-        <a href="compare.html" class="btn-main" style="padding: 10px 20px;">Compare Now</a>
-    </div>
 
     <script src="data.js"></script>
     <script src="script.js"></script>
