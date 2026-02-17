@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LG Rent-Up™ Malaysia | Official Store</title>
+    <title>LG Rent-Up™ Malaysia | Official Ohsem Promo</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="canonical" href="https://lgsubscriptionsstore.github.io/lg-subscribe-official/" />
 </head>
 <body>
     <nav class="navbar">
@@ -18,21 +17,62 @@
         </div>
     </nav>
 
-    <header style="background: var(--light-grey); padding: 80px 0; text-align: center;">
-        <div class="container">
-            <h1 style="font-size: 48px; font-weight: 300;">Upgrade Your Home, <br><span style="color: var(--lg-red); font-weight: 700;">Zero Upfront.</span></h1>
-            <p style="margin: 20px 0 40px;">Official LG Subscription starting from RM80/month.</p>
-            <a href="products.html" class="btn">Browse All Models</a>
+    <header class="hero-slider">
+        <div class="slider-container">
+            <div class="slide active" style="background-image: url('https://lgpuricareu.com/wp-content/uploads/2025/08/Ohsem-campaign-Ohsem-50.png');">
+                <div class="container slide-content">
+                    <div class="countdown-wrapper">
+                        <span class="eyebrow">OHSEM PROMO ENDS IN:</span>
+                        <div id="countdown" class="countdown-timer"></div>
+                    </div>
+                    <h1>50% OFF <br><span>First 9 Months</span></h1>
+                    <p>Upgrade to LG's latest technology with RM0 upfront payment.</p>
+                    <a href="products.html" class="btn-main">Shop Ohsem Deals</a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7PtCnEx8uHDfz9blkaS7fVMh4WwD8xFxtUrhcKk6uZg&s=10');">
+                <div class="container slide-content">
+                    <h1>Smart Appliances</h1>
+                    <p>Experience effortless living with AI-powered LG washers and dryers.</p>
+                    <a href="products.html" class="btn-main">Browse Appliances</a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVcDfn9i8Jvmw2kDyTT1bFlPg_ixT8NsjE7wT8D-I1vw&s');">
+                <div class="container slide-content">
+                    <h1>Clean Air & Water</h1>
+                    <p>Protect your family with LG PuriCare™ advanced filtration systems.</p>
+                    <a href="products.html" class="btn-main">Explore PuriCare</a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1573161814212-426ce6169c73?auto=format&fit=crop&q=80&w=1000');">
+                <div class="container slide-content">
+                    <h1>Join Our Elite Team</h1>
+                    <p>Start your career as an LG Certified Subscription Consultant today.</p>
+                    <a href="join-us.html" class="btn-main">Become an Agent</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
         </div>
     </header>
 
-    <div class="container">
-        <div id="product-list" class="grid"></div>
-    </div>
+    <section class="container" style="padding: 60px 20px;">
+        <h2 style="text-align: center; margin-bottom: 40px;">Featured LG Models</h2>
+        <div id="product-list" class="grid">
+            </div>
+    </section>
 
     <div id="tray" class="tray">
         <span id="tray-count">0 Selected</span>
-        <a href="compare.html" class="btn" style="padding: 10px 20px;">Compare Now</a>
+        <a href="compare.html" class="btn-main" style="padding: 10px 20px;">Compare Now</a>
     </div>
 
     <script src="data.js"></script>
