@@ -41,20 +41,13 @@
                 <li><a href="promotions.html">Promotions</a></li>
                 <li><a href="join.html">Join Us</a></li>
                 <li><a href="faq.html">FAQ</a></li>
-                <li><a href="#" onclick="openEnquiry()">Enquiry</a></li>
+                <li><a href="#" onclick="open='openEnquiry()'">Enquiry</a></li>
             </ul>
         </div>
     </header>
 
-    <!-- HERO SLIDER -->
-    <section class="hero">
-        <div class="hero-slider">
-            <div class="slide active" style="background-image:url('https://www.lg.com/content/dam/channel/wcms/my/lg-subscribe/ohsem-deals/main/ohsem-hero.jpg');"></div>
-            <div class="slide" style="background-image:url('https://www.lg.com/my/images/water-purifiers/wd210mn/features/wd210mn-hero.jpg');"></div>
-            <div class="slide" style="background-image:url('https://www.lg.com/my/images/televisions/65qned87asa/main/65qned87asa-01.jpg');"></div>
-            <div class="slide" style="background-image:url('https://www.lg.com/my/images/air-purifiers/as35ggw10/main/as35ggw10-01.jpg');"></div>
-        </div>
-        <div class="hero-overlay"></div>
+    <!-- STATIC HERO (reliable, no JS needed) -->
+    <section class="hero" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://www.lg.com/content/dam/channel/wcms/my/lg-subscribe/ohsem-deals/main/ohsem-hero.jpg') center/cover no-repeat;">
         <div class="hero-content container">
             <h1>Own LG Without Buying</h1>
             <p>Official Monthly Rental • From RM 45/month • Free Delivery & Installation</p>
@@ -63,9 +56,6 @@
                 <a href="https://wa.me/60142626792" target="_blank" class="btn-secondary large">Chat on WhatsApp</a>
             </div>
         </div>
-        <button class="slider-prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
-        <button class="slider-next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
-        <div class="slider-dots" id="sliderDots"></div>
     </section>
 
     <!-- FEATURES STRIP -->
@@ -79,7 +69,7 @@
         </div>
     </section>
 
-    <!-- POPULAR PRODUCTS TEASER -->
+    <!-- POPULAR PRODUCTS TEASER (with onerror fallback) -->
     <section class="section">
         <div class="container">
             <div class="section-header">
@@ -88,39 +78,39 @@
             </div>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="https://www.lg.com/my/images/air-purifiers/as35ggw10/main/as35ggw10-01.jpg" alt="Air Purifier">
+                    <img src="https://www.lg.com/my/images/air-purifiers/as35ggw10/main/as35ggw10-01.jpg" alt="Air Purifier" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600/eeeeee/666666?text=LG+PuriCare+AS35GGW10';this.onerror=null;">
                     <div class="card-body">
                         <span class="category">Air Purifier</span>
                         <h3>PuriCare™ AS35GGW10</h3>
                         <div class="price">From <strong>RM 45</strong>/month</div>
-                        <a href="https://wa.me/60142626792?text=Interested%20in%20PuriCare%20AS35GGW10" target="_blank" class="btn-primary small">Subscribe Now</a>
+                        <a href="https://wa.me/60142626792?text=Interested in PuriCare AS35GGW10" target="_blank" class="btn-primary small">Subscribe Now</a>
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://www.lg.com/my/images/water-purifiers/wd210mn/main/wd210mn-01.jpg" alt="Water Purifier">
+                    <img src="https://www.lg.com/my/images/water-purifiers/wd210mn/main/wd210mn-01.jpg" alt="Water Purifier" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600/eeeeee/666666?text=LG+PuriCare+WD210MN';this.onerror=null;">
                     <div class="card-body">
                         <span class="category">Water Purifier</span>
                         <h3>PuriCare™ WD210MN</h3>
                         <div class="price">From <strong>RM 60</strong>/month</div>
-                        <a href="https://wa.me/60142626792?text=Interested%20in%20PuriCare%20WD210MN" target="_blank" class="btn-primary small">Subscribe Now</a>
+                        <a href="https://wa.me/60142626792?text=Interested in PuriCare WD210MN" target="_blank" class="btn-primary small">Subscribe Now</a>
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://www.lg.com/my/images/refrigerators/gv-k25ffger/main/gv-k25ffger-01.jpg" alt="Refrigerator">
+                    <img src="https://www.lg.com/my/images/refrigerators/gv-k25ffger/main/gv-k25ffger-01.jpg" alt="Refrigerator" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600/eeeeee/666666?text=LG+Multi-Door+Refrigerator';this.onerror=null;">
                     <div class="card-body">
                         <span class="category">Refrigerator</span>
                         <h3>Multi-Door GV-K25FFGER</h3>
                         <div class="price">From <strong>RM 180</strong>/month</div>
-                        <a href="https://wa.me/60142626792?text=Interested%20in%20Multi-Door%20Refrigerator" target="_blank" class="btn-primary small">Subscribe Now</a>
+                        <a href="https://wa.me/60142626792?text=Interested in Multi-Door Refrigerator" target="_blank" class="btn-primary small">Subscribe Now</a>
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://www.lg.com/my/images/televisions/65qned87asa/main/65qned87asa-01.jpg" alt="TV">
+                    <img src="https://www.lg.com/my/images/televisions/65qned87asa/main/65qned87asa-01.jpg" alt="TV" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600/eeeeee/666666?text=LG+65 QNED+TV';this.onerror=null;">
                     <div class="card-body">
                         <span class="category">TV</span>
                         <h3>65" QNED87ASA</h3>
                         <div class="price">From <strong>RM 135</strong>/month</div>
-                        <a href="https://wa.me/60142626792?text=Interested%20in%2065%22%20QNED%20TV" target="_blank" class="btn-primary small">Subscribe Now</a>
+                        <a href="https://wa.me/60142626792?text=Interested in 65 QNED TV" target="_blank" class="btn-primary small">Subscribe Now</a>
                     </div>
                 </div>
             </div>
@@ -140,7 +130,7 @@
             <div class="promo-grid">
                 <div class="promo-card">
                     <div class="promo-badge">LIMITED</div>
-                    <img src="https://www.lg.com/content/dam/channel/wcms/my/lg-subscribe/ohsem-deals/main/ohsem-hero.jpg" alt="CNY Promotion">
+                    <img src="https://www.lg.com/content/dam/channel/wcms/my/lg-subscribe/ohsem-deals/main/ohsem-hero.jpg" alt="CNY Promotion" loading="lazy" onerror="this.src='https://via.placeholder.com/800x600/eeeeee/666666?text=LG+CNY+Promotion';this.onerror=null;">
                     <div class="promo-content">
                         <h3>OHSEM CNY 2026 Deals</h3>
                         <p class="price">Selected products from RM 9 first month</p>
@@ -160,11 +150,6 @@
                     <span class="brand-text">Subscribe</span>
                 </div>
                 <p>Official LG Home Appliances Subscription Program by LG Electronics Malaysia</p>
-                <div class="social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
             </div>
             <div class="footer-col">
                 <h4>Quick Links</h4>
