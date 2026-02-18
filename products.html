@@ -9,16 +9,52 @@
     <script src="script.js" defer></script>
 </head>
 <body data-page="products">
-    <!-- HEADER (copy from index.html) -->
+    <!-- HEADER (same as index.html) -->
+    <header class="header">
+        <div class="header-inner container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://www.lg.com/my/images/common/logo-lg.svg" alt="LG" class="lg-logo">
+                    <span class="brand-text">Subscribe</span>
+                </a>
+            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html" class="active">Products</a></li>
+                    <li><a href="promotions.html">Promotions</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" onclick="openEnquiry()" class="btn-primary">Enquiry</a>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#" onclick="openEnquiry()">Enquiry</a></li>
+            </ul>
+        </div>
+    </header>
 
     <!-- PAGE HERO -->
-    <section class="page-hero" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://www.lg.com/my/images/lg-subscribe/ohsem-deals/main/ohsem-hero.jpg') center/cover;">
+    <section class="page-hero" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://www.lg.com/content/dam/channel/wcms/my/lg-subscribe/ohsem-deals/main/ohsem-hero.jpg') center/cover;">
         <div class="container">
-            <h1>Our Products</h1>
-            <p>Official LG Home Appliances Monthly Rental – From RM 45/month</p>
+            <h1>All Products</h1>
+            <p>49 Official LG Appliances • From RM 45/month</p>
         </div>
     </section>
 
+    <!-- FILTERS -->
     <section class="filters-section">
         <div class="container">
             <div class="product-filters">
@@ -30,6 +66,11 @@
                     <option value="Dehumidifier">Dehumidifier</option>
                     <option value="Clothing Care">Clothing Care</option>
                     <option value="Vacuum Cleaner">Vacuum Cleaner</option>
+                    <option value="Washing Machine">Washing Machine</option>
+                    <option value="Washer Dryer">Washer Dryer</option>
+                    <option value="WashTower">WashTower</option>
+                    <option value="Top Loader">Top Loader</option>
+                    <option value="Dryer">Dryer</option>
                     <option value="Air Conditioner">Air Conditioner</option>
                     <option value="Refrigerator">Refrigerator</option>
                     <option value="Dishwasher">Dishwasher</option>
@@ -37,19 +78,56 @@
                     <option value="TV">TV</option>
                     <option value="Soundbar">Soundbar</option>
                 </select>
-                <button onclick="filterProducts()" class="btn-secondary">Filter</button>
             </div>
         </div>
     </section>
 
+    <!-- PRODUCT GRID (dynamic from script.js with onerror fallback) -->
     <section class="section">
         <div class="container">
-            <div class="product-grid" id="productGrid"></div>
+            <div class="product-grid" id="productGrid">
+                <!-- Cards rendered by script.js -->
+            </div>
         </div>
     </section>
 
     <!-- FOOTER + FLOATING WHATSAPP -->
-    <footer class="footer">...</footer>
-    <a href="https://wa.me/60142626792" target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="https://www.lg.com/my/images/common/logo-lg-white.svg" alt="LG" class="lg-logo">
+                    <span class="brand-text">Subscribe</span>
+                </div>
+                <p>Official LG Home Appliances Subscription Program by LG Electronics Malaysia</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="products.html">All Products</a></li>
+                    <li><a href="promotions.html">Promotions</a></li>
+                    <li><a href="join.html">Join as Agent</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 1-800-822-822</li>
+                    <li><i class="fab fa-whatsapp"></i> 60142626792</li>
+                    <li><i class="fas fa-envelope"></i> subscribe@lg.com.my</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>© 2026 LG Subscribe Malaysia. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/60142626792" target="_blank" class="floating-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 </body>
 </html>
