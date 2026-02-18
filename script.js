@@ -1,4 +1,4 @@
-// script.js - FULL COMPLETE OFFICIAL VERSION (WhatsApp 60142626792)
+// script.js - FULL COMPLETE (with WhatsApp 60142626792)
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('sliderDots');
@@ -31,7 +31,7 @@ function startAutoSlide() {
     slideInterval = setInterval(nextSlide, 4000);
 }
 
-// Hamburger
+// Hamburger menu
 const hamburger = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
 if (hamburger) hamburger.addEventListener('click', () => {
@@ -39,10 +39,10 @@ if (hamburger) hamburger.addEventListener('click', () => {
     mobileMenu.classList.toggle('active');
 });
 
-// Forms
+// Forms (demo alerts)
 function handleQuickApply(e) { e.preventDefault(); alert('✅ Application received!'); e.target.reset(); }
 function subscribeNewsletter(e) { e.preventDefault(); alert('🎉 Subscribed!'); e.target.reset(); }
-function openEnquiry() { alert('📞 Enquiry opened'); }
+function openEnquiry() { alert('📞 Enquiry sent!'); }
 
 // FAQ toggle
 function toggleFaq(el) {
@@ -51,7 +51,7 @@ function toggleFaq(el) {
     if (!answer.style.maxHeight) answer.style.maxHeight = answer.scrollHeight + "px";
 }
 
-// COMPLETE OFFICIAL PRODUCTS FROM E-BROCHURE
+// FULL PRODUCTS ARRAY (49 official models)
 const allProducts = [
     { id:1, category:"Water Purifier", name:"PuriCare™ WD210MN", price:60, img:["https://www.lg.com/my/images/water-purifiers/wd210mn/main/wd210mn-01.jpg"] },
     { id:2, category:"Water Purifier", name:"PuriCare™ WD516AN", price:70, img:["https://www.lg.com/my/images/water-purifiers/wd516an/main/wd516an-01.jpg"] },
@@ -109,43 +109,41 @@ function renderProducts(filtered) {
     if (!grid) return;
     grid.innerHTML = '';
     filtered.forEach(p => {
-        let html = `<div class="product-card">`;
-        html += `<img src="${p.img[0]}" alt="${p.name}" style="width:100%;height:260px;object-fit:cover;">`;
-        html += `<div class="card-body">`;
-        html += `<span class="category">${p.category}</span>`;
-        html += `<h3>${p.name}</h3>`;
-        html += `<div class="price">From <strong>RM ${p.price}</strong>/month</div>`;
-        html += `<a href="https://wa.me/60142626792?text=Interested in ${encodeURIComponent(p.name)}" target="_blank" class="btn-primary small">Subscribe Now</a>`;
-        html += `</div></div>`;
-        grid.innerHTML += html;
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+            <img src="${p.img[0]}" alt="${p.name}" loading="lazy">
+            <div class="card-body">
+                <span class="category">${p.category}</span>
+                <h3>${p.name}</h3>
+                <div class="price">From <strong>RM ${p.price}</strong>/month</div>
+                <a href="https://wa.me/60142626792?text=Interested in ${encodeURIComponent(p.name)}" target="_blank" class="btn-primary small">Subscribe Now</a>
+            </div>
+        `;
+        grid.appendChild(card);
     });
 }
 
 function filterProducts() {
-    const search = (document.getElementById('searchInput') || {}).value?.toLowerCase() || '';
-    const cat = (document.getElementById('categoryFilter') || {}).value || '';
-    let filtered = allProducts.filter(p => {
-        const matchSearch = p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search);
-        const matchCat = !cat || p.category === cat;
-        return matchSearch && matchCat;
-    });
+    const search = (document.getElementById('searchInput')?.value?.toLowerCase() || '');
+    const cat = (document.getElementById('categoryFilter')?.value || '');
+    const filtered = allProducts.filter(p => 
+        (p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search)) &&
+        (!cat || p.category === cat)
+    );
     renderProducts(filtered);
 }
 
 function init() {
-    initSliderDots();
-    showSlide(0);
-    startAutoSlide();
-    setActiveNav();
-    loadFaqTeaser();
-    fadeInSections();
-
+    if (slides.length > 0) {
+        initSliderDots();
+        showSlide(0);
+        startAutoSlide();
+    }
     if (document.getElementById('productGrid')) {
         renderProducts(allProducts);
-        const searchInput = document.getElementById('searchInput');
-        const categoryFilter = document.getElementById('categoryFilter');
-        if (searchInput) searchInput.addEventListener('input', filterProducts);
-        if (categoryFilter) categoryFilter.addEventListener('change', filterProducts);
+        document.getElementById('searchInput')?.addEventListener('input', filterProducts);
+        document.getElementById('categoryFilter')?.addEventListener('change', filterProducts);
     }
 }
 
