@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - LG Subscribe Malaysia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body data-page="products">
+    <!-- HEADER (copy from index.html) -->
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" style="background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://www.lg.com/my/images/lg-subscribe/ohsem-deals/main/ohsem-hero.jpg') center/cover;">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Official LG Home Appliances Monthly Rental – From RM 45/month</p>
+        </div>
+    </section>
+
+    <section class="filters-section">
+        <div class="container">
+            <div class="product-filters">
+                <input type="text" id="searchInput" placeholder="Search products...">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="Water Purifier">Water Purifier</option>
+                    <option value="Air Purifier">Air Purifier</option>
+                    <option value="Dehumidifier">Dehumidifier</option>
+                    <option value="Clothing Care">Clothing Care</option>
+                    <option value="Vacuum Cleaner">Vacuum Cleaner</option>
+                    <option value="Air Conditioner">Air Conditioner</option>
+                    <option value="Refrigerator">Refrigerator</option>
+                    <option value="Dishwasher">Dishwasher</option>
+                    <option value="Microwave">Microwave</option>
+                    <option value="TV">TV</option>
+                    <option value="Soundbar">Soundbar</option>
+                </select>
+                <button onclick="filterProducts()" class="btn-secondary">Filter</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER + FLOATING WHATSAPP -->
+    <footer class="footer">...</footer>
+    <a href="https://wa.me/60142626792" target="_blank" class="floating-whatsapp"><i class="fab fa-whatsapp"></i></a>
+</body>
+</html>
