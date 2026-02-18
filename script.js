@@ -1,4 +1,4 @@
-// script.js - FULL COMPLETE (with WhatsApp 60142626792)
+// script.js - FINAL UPDATED VERSION (with image onerror fallback + WhatsApp 60142626792)
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
 const dotsContainer = document.getElementById('sliderDots');
@@ -51,7 +51,7 @@ function toggleFaq(el) {
     if (!answer.style.maxHeight) answer.style.maxHeight = answer.scrollHeight + "px";
 }
 
-// FULL PRODUCTS ARRAY (49 official models)
+// FULL OFFICIAL PRODUCTS ARRAY (49 models)
 const allProducts = [
     { id:1, category:"Water Purifier", name:"PuriCare™ WD210MN", price:60, img:["https://www.lg.com/my/images/water-purifiers/wd210mn/main/wd210mn-01.jpg"] },
     { id:2, category:"Water Purifier", name:"PuriCare™ WD516AN", price:70, img:["https://www.lg.com/my/images/water-purifiers/wd516an/main/wd516an-01.jpg"] },
@@ -112,7 +112,8 @@ function renderProducts(filtered) {
         const card = document.createElement('div');
         card.className = 'product-card';
         card.innerHTML = `
-            <img src="${p.img[0]}" alt="${p.name}" loading="lazy">
+            <img src="${p.img[0]}" alt="${p.name}" loading="lazy" 
+                 onerror="this.src='https://via.placeholder.com/800x600/eeeeee/666666?text=LG+${encodeURIComponent(p.name.replace(/™/g,'').replace(/"/g,''))}';this.onerror=null;">
             <div class="card-body">
                 <span class="category">${p.category}</span>
                 <h3>${p.name}</h3>
