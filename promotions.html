@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promotions - LG Subscribe Malaysia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="script.js" defer></script>
+</head>
+<body data-page="promotions">
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="https://www.lg.com/my/images/common/logo-lg.svg" alt="LG" class="lg-logo">
+                    <span class="brand-text">Subscribe</span>
+                </a>
+            </div>
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="promotions.html" class="active">Promotions</a></li>
+                    <li><a href="join.html">Join Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" onclick="openEnquiry()" class="btn-primary">Enquiry</a>
+                <button class="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="promotions.html">Promotions</a></li>
+                <li><a href="join.html">Join Us</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="#" onclick="openEnquiry()">Enquiry</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" style="background: linear-gradient(rgba(230,0,18,0.85),rgba(230,0,18,0.85)), url('https://www.lg.com/content/dam/channel/wcms/my/lg-subscribe/ohsem-deals/raya-deals-2026/ohsem-home.jpg') center/cover; color: white; text-align: center; height: 420px; display: flex; align-items: center;">
+        <div class="container">
+            <h1 style="font-size: 62px; font-weight: 800;">Hot Promotions</h1>
+            <p style="font-size: 24px; margin-top: 12px;">OHSEM CNY 2026 Deals • Up to 50% OFF First 9 Months</p>
+        </div>
+    </section>
+
+    <!-- PROMOTIONS GRID -->
+    <section class="section" style="padding-top: 60px;">
+        <div class="container">
+            <div class="promo-grid" id="promoGrid"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner container">
+            <div class="footer-col">
+                <div class="logo">
+                    <img src="https://www.lg.com/my/images/common/logo-lg-white.svg" alt="LG" class="lg-logo">
+                    <span class="brand-text">Subscribe</span>
+                </div>
+                <p>Official LG Home Appliances Subscription Program by LG Electronics (M) Sdn Bhd</p>
+                <div class="social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="promotions.html">Promotions</a></li>
+                    <li><a href="join.html">Join as Agent</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> 1-800-822-822</li>
+                    <li><i class="fas fa-envelope"></i> subscribe@lg.com.my</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Office</h4>
+                <p>LG Electronics (M) Sdn Bhd<br>
+                Level 9, Menara Symphony<br>
+                No. 5, Jalan Prof. Khoo Kay Kim<br>
+                Seksyen 13, 46200 Petaling Jaya<br>
+                Selangor, Malaysia</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 LG Electronics Malaysia. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/60142626792" target="_blank" class="floating-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Render promotions (called from script.js init)
+        function renderPromotions() {
+            const grid = document.getElementById('promoGrid');
+            if (!grid) return;
+
+            const promos = [
+                {
+                    title: "OHSEM CNY 2026 Special",
+                    badge: "50% OFF FIRST 9 MONTHS",
+                    price: 299,
+                    img: "https://www.lg.com/content/dam/channel/wcms/my/lg-subscribe/ohsem-deals/raya-deals-2026/ohsem-home.jpg",
+                    endDate: "2026-02-28"
+                },
+                {
+                    title: "PuriCare™ Water Purifier",
+                    badge: "RM 9 FIRST MONTH",
+                    price: 89,
+                    img: "https://www.lg.com/my/images/water-purifiers/wd516an/main/wd516an-01.jpg",
+                    endDate: "2026-02-28"
+                },
+                {
+                    title: "Objet WashTower™",
+                    badge: "FREE INSTALLATION",
+                    price: 219,
+                    img: "https://www.lg.com/my/images/washer-dryers/wt2520nhba/main/wt2520nhba-01.jpg",
+                    endDate: "2026-03-15"
+                },
+                {
+                    title: "65\" OLED evo G4",
+                    badge: "50% OFF FIRST 6 MONTHS",
+                    price: 299,
+                    img: "https://www.lg.com/my/images/televisions/65g4/main/65g4-01.jpg",
+                    endDate: "2026-02-28"
+                }
+            ];
+
+            grid.innerHTML = '';
+            promos.forEach((promo, i) => {
+                const card = document.createElement('div');
+                card.className = 'promo-card';
+                card.innerHTML = `
+                    <div class="promo-badge">${promo.badge}</div>
+                    <img src="${promo.img}" alt="${promo.title}">
+                    <div class="promo-content">
+                        <h3>${promo.title}</h3>
+                        <p class="price">RM ${promo.price}<span>/month</span></p>
+                        <div class="countdown" id="countdown-${i}">Loading...</div>
+                        <a href="https://wa.me/60142626792?text=I'm interested in the ${encodeURIComponent(promo.title)} promotion" target="_blank" class="btn-primary small">Register Now</a>
+                    </div>
+                `;
+                grid.appendChild(card);
+
+                // Start countdown
+                startCountdown(promo.endDate + "T23:59:59", `countdown-${i}`);
+            });
+        }
+
+        // Countdown function
+        function startCountdown(endDateStr, elementId) {
+            const endDate = new Date(endDateStr).getTime();
+            const timer = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                if (distance < 0) {
+                    clearInterval(timer);
+                    document.getElementById(elementId).innerHTML = "Promo Ended";
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById(elementId).innerHTML = `${days}d ${hours}h left`;
+            }, 1000);
+        }
+
+        // Call when page loads
+        window.addEventListener('load', () => {
+            if (document.getElementById('promoGrid')) renderPromotions();
+        });
+    </script>
+</body>
+</html>
